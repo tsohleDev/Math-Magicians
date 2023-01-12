@@ -28,7 +28,7 @@ class Calculator extends React.Component {
         <Screen total={total} next={next} operation={operation} className="screen" />
         {buttons.map((button) => (
           <Button
-            key={button.id}
+            key={button}
             handleClick={this.handleClick}
             text={button}
           />
