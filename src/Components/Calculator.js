@@ -1,41 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from './Button';
 import Screen from './Screen';
 import calculate from '../logic/calculate';
 import './Calculator.css';
 
-class Calculator extends React.Component {
-  constructor(props) {
-    super(props);
+function Calculator() {
+  const [sum, setSum] = useState({ total: 0, next: null, operation: null });
+  const buttons = ['AC', '+/-', '%', '÷', '7', '8', '9', 'x', '4', '5', '6', '-', '1', '2', '3', '+', '0', '.', '='];
 
-    this.state = { sum: { total: 0, next: null, operation: null } };
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick = (text) => {
-    const { sum } = this.state;
+  const handleClick = (text) => {
     const sumObject = calculate(sum, text);
-    this.setState({ sum: sumObject });
+    setSum(sumObject);
   };
 
-  render() {
-    const buttons = ['AC', '+/-', '%', '÷', '7', '8', '9', 'x', '4', '5', '6', '-', '1', '2', '3', '+', '0', '.', '='];
-
-    const { sum } = this.state;
-    const { total, next, operation } = sum;
-    return (
-      <div className="calculator">
-        <Screen total={total} next={next} operation={operation} className="screen" />
-        {buttons.map((button) => (
-          <Button
-            key={button}
-            handleClick={this.handleClick}
-            text={button}
-          />
-        ))}
-      </div>
-    );
-  }
+  const { total, next, operation } = sum;
+  return (
+    <div className="calculator">
+      <Screen total={total} next={next} operation={operation} className="screen" />
+      {buttons.map((button) => (
+        <Button
+          key={button}
+          handleClick={handleClick}
+          text={button}
+        />
+      ))}
+    </div>
+  );
 }
 
 export default Calculator;
