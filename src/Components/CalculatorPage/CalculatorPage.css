@@ -1,0 +1,9 @@
+.calcpage {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  align-items: center;
+}
+
+h1 {
+  text-align: center;
+}

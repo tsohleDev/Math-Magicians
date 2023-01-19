@@ -37,3 +37,26 @@
     transform: rotate(360deg);
   }
 }
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2vw;
+  border-bottom: rgb(64, 143, 255) solid 2px;
+}
+
+ul {
+  align-self: center;
+  list-style: none;
+  display: flex;
+}
+
+li {
+  padding: 0 10px;
+  border-right: #000 solid 2px;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
